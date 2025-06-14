@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RZD Schedules</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div id="outerHeader">
+        <div id="header">
+            <img id="logoImg" src="/img/logo.png">
+            <button class="navButton">Найти электричку</button>
+            <button class="navButton">Избранные</button>
+            <p></p>
+            <button class="navButton">Регистрация</button>
+            <button class="navButton">Войти</button>
+        </div>
+    </div>
+    <div id="searchForm">
+        <form id="form">
+            <div id="label">
+                <label for="from">Откуда</label><br>
+            </div>
+            <input id="from" type="text" required><br>
+            <div id="label">
+                <label for="to">Куда</label><br>
+            </div>
+            <input id="to" type="text" required><br>
+            <input id="searchButton" type="submit" value="Найти">
+            <p class="Error" style="visibility:hidden;">Пожалуйста заполните все поля</p>
+        </form>
+    </div>
+    
+</body>
+    <script src="/scripts/script.js"></script>
+</html>
