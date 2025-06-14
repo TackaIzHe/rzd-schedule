@@ -1,5 +1,6 @@
 import express from 'express'
 import path from 'path'
+import routers from './routers/index'
 require('dotenv').config({path:'src/.env'})
 const app = express()
 const port = process.env.PORT || 2050
@@ -7,7 +8,7 @@ const port = process.env.PORT || 2050
 app.use(express.json())
 
 app.use(express.static(__dirname+'/public'))
-
+app.use(routers)
 app.get('/',(req,res)=>{
     res.status(200).json(200)
 })

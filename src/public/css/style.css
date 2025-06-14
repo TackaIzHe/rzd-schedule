@@ -44,7 +44,7 @@ div#header{
     grid-auto-flow: column;
     text-align:start;
 }
-div#searchForm{
+div.divForm{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -55,7 +55,8 @@ img#logoImg{
     position: relative;
     right: 10px;
 }
-form#form{
+form.form{
+    display: none;
     border: 2px solid black ; 
     width: 400px; height:250px; 
     text-align: center; 
@@ -63,7 +64,7 @@ form#form{
     background-color: grey;
     border-radius: 15px;
 }
-div#label{
+div.label{
     padding-top: 10px;
 }
 label{
@@ -93,4 +94,7 @@ input:active{
     background-color:gray; 
     font-size: 25px; 
     margin-top: 10px;
+}
+.Error{
+    display: none;
 }

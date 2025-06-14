@@ -6,25 +6,26 @@
     <title>RZD Schedules</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" href="/img/logo.png">
 </head>
 <body>
     <div id="outerHeader">
         <div id="header">
             <img id="logoImg" src="/img/logo.png">
-            <button class="navButton">Найти электричку</button>
+            <button id="search" class="navButton">Найти электричку</button>
             <button class="navButton">Избранные</button>
             <p></p>
-            <button class="navButton">Регистрация</button>
+            <button id="register" class="navButton">Регистрация</button>
             <button class="navButton">Войти</button>
         </div>
     </div>
-    <div id="searchForm">
-        <form id="form">
-            <div id="label">
+    <div class="divForm" id="searchForm">
+        <form class="form" id="form">
+            <div class="label">
                 <label for="from">Откуда</label><br>
             </div>
             <input id="from" type="text" required><br>
-            <div id="label">
+            <div class="label">
                 <label for="to">Куда</label><br>
             </div>
             <input id="to" type="text" required><br>
@@ -32,7 +33,26 @@
             <p class="Error" style="visibility:hidden;">Пожалуйста заполните все поля</p>
         </form>
     </div>
+    <div class="divForm" id="reg">
+        <form class="form" id="regForm" style="height: 330px;">
+            <div class="label">
+                <label>Имя</label>
+            </div>
+            <input id="regName" type="text">
+            <div class="label">
+                <label>Логин</label>
+            </div>
+            <input id="regLog" type="text">
+            <div class="label">
+                <label>Пароль</label>
+            </div>
+            <input id="regPass" type="password"><br>
+            <input type="submit" value="Зарегестрироваться">
+            <p class="Error">Пожалуйста заполните все поля</p>
+        </form>
+    </div>
     
 </body>
+    <script src="/scripts/fetch.js"></script>
     <script src="/scripts/script.js"></script>
 </html>
