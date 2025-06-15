@@ -16,7 +16,7 @@
             <button class="navButton">Избранные</button>
             <p></p>
             <button id="register" class="navButton">Регистрация</button>
-            <button class="navButton">Войти</button>
+            <button id="login" class="navButton">Войти</button>
         </div>
     </div>
     <div class="divForm" id="searchForm">
@@ -36,18 +36,32 @@
     <div class="divForm" id="reg">
         <form class="form" id="regForm" style="height: 330px;">
             <div class="label">
-                <label>Имя</label>
+                <label for="regName">Имя</label>
             </div>
             <input id="regName" type="text">
             <div class="label">
-                <label>Логин</label>
+                <label for="regLog">Логин</label>
             </div>
             <input id="regLog" type="text">
             <div class="label">
-                <label>Пароль</label>
+                <label for="regPass">Пароль</label>
             </div>
             <input id="regPass" type="password"><br>
-            <input type="submit" value="Зарегестрироваться">
+            <input id="regButton" type="submit" value="Зарегестрироваться">
+            <p class="Error">Пожалуйста заполните все поля</p>
+        </form>
+    </div>
+    <div class="divForm" id="log">
+        <form class="form" id="logForm">
+            <div class="label">
+                <label for="logLog">Логин</label>
+            </div>
+            <input id="logLog" type="text">
+            <div class="label">
+                <label for="logPass">Пароль</label>
+            </div>
+            <input id="logPass" type="password"><br>
+            <input id="logButton" type="submit" value="Авторизоваться">
             <p class="Error">Пожалуйста заполните все поля</p>
         </form>
     </div>
