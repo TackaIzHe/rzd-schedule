@@ -11,17 +11,24 @@ $('input#searchButton').click((event)=>{
     httpFetch.requestParams('schedules',from, to)
 })
 
-$('input#regButton').click((event)=>{
+$('form#regForm').submit((event)=>{
     event.preventDefault()
     const name = $('input#regName').val()
     const log = $('input#regLog').val()
     const pass = $('input#regPass').val()
+    const img = $('input#img')[0].files
     if(name == '' || log=='' || pass==''){
         $('p.Error').css({visibility:'visible'})
         return
     }
+    const q = new FormData(event.currentTarget)
+    q.append('img',img)
     $('p.Error').css({visibility:'hidden'})
-    httpFetch.requestBody('register','POST',{name:name,login:log,password:pass})
+    httpFetch.requestBody('register','POST',JSON.stringify({name:name,login:log,password:pass}))
+    .then((e)=>{
+        if(e.ok)
+        httpFetch.requestBody('uploadImg','POST',q)
+    })
 })
 
 $('input#logButton').click((event)=>{
