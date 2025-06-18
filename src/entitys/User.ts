@@ -15,7 +15,9 @@ export class User{
     @Column()
     password!:string
 
-    @Column()
+    @Column({
+        default:'/img/img.jpeg'
+    })
     img!:string
 
     @OneToMany(()=>Favorite,(favorite)=>favorite.user)

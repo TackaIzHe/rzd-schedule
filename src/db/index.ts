@@ -1,6 +1,8 @@
 import { DataSource } from "typeorm";
 import { User } from "../entitys/User";
 import { Favorite } from "../entitys/Favorite";
+import { Region } from "../entitys/Region";
+import { Station } from "../entitys/Station";
 
 export const DbContex = new DataSource({
     type:"sqlite",
@@ -9,6 +11,8 @@ export const DbContex = new DataSource({
     logging:true,
     entities:{
         User,
-        Favorite
+        Favorite,
+        Region,
+        Station
     }
 })

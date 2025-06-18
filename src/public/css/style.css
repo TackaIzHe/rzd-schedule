@@ -98,3 +98,10 @@ input:active{
 .Error{
     display: none;
 }
+img#ava{
+    position: relative;
+    left: 90px; 
+    height: 100px; 
+    width: 100px;
+    visibility: hidden;
+}

@@ -1,3 +1,9 @@
+
+if(document.cookie.split('=')[1] !== undefined){
+    Login()
+
+}
+
 $('input#searchButton').click((event)=>{
     event.preventDefault()
     const from = $('input#from').val() 
@@ -22,12 +28,15 @@ $('form#regForm').submit((event)=>{
         return
     }
     const q = new FormData(event.currentTarget)
-    q.append('img',img)
     $('p.Error').css({visibility:'hidden'})
     httpFetch.requestBody('register','POST',JSON.stringify({name:name,login:log,password:pass}))
-    .then((e)=>{
+    .then(async (e)=>{
         if(e.ok)
-        httpFetch.requestBody('uploadImg','POST',q)
+        {
+            q.append('id',JSON.parse(await e.text()).id)
+            q.append('img',img)
+            httpFetch.requestBody('uploadImg','POST',q,{})
+        } 
     })
 })
 
@@ -40,28 +49,44 @@ $('input#logButton').click((event)=>{
         return
     }
     $('p.Error').css({visibility:'hidden'})
-    httpFetch.requestBody('login','POST',{login:log,password:pass})
+    httpFetch.requestBody('login','POST',JSON.stringify({login:log,password:pass}))
+    .then(async(e)=>{
+        if(e.ok){
+            Login()
+        }
+
+    })
+    
 })
 
 $('input#logButton').click((event)=>{
     event.preventDefault()
 })
 
-$('button#search').click(()=>{
+$('button#search').click(searchTogle)
+$('button#login').click(logTogle)
+$('button#register').click(regTogle)
+
+
+
+function searchTogle(){
     regForm()
     logForm()
     $('form#form').slideToggle(1000)
-})
-$('button#register').click(()=>{
+}
+
+function regTogle(){
     serchForm()
     logForm()
     $('form#regForm').slideToggle(1000)
-})
-$('button#login').click(()=>{
+}
+
+function logTogle(){
     serchForm()
     regForm()
     $('form#logForm').slideToggle(1000)
-})
+}
+
 function serchForm(){
     $('form#form').slideUp(1000)
 }
