@@ -19,7 +19,7 @@ $('input#searchButton').click((event)=>{
     .then(async(e)=>{
         if(e.ok){
             const res = JSON.parse(await(e.text()))
-            getSchedule(res)
+            getSchedule(res,from,to)
         }
     })
 })
@@ -82,7 +82,7 @@ function scheduleToggle(){
     regForm()
     logForm()
     OKButton()
-    $('form#schedule').slideToggle(1000)
+    $('div.schedule-container').slideToggle(1000)
 }
 
 function OKButtonToggle(){
@@ -133,5 +133,5 @@ function logForm(){
     $('form#logForm').slideUp(1000)
 }
 function scheduleForm(){
-    $('form#schedule').slideUp(1000)
+    $('div.schedule-container').slideUp(1000)
 }
