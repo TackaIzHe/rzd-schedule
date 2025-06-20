@@ -1,12 +1,10 @@
-import express, { Errback, NextFunction, Request, Response } from 'express'
-import path from 'path'
+import express from 'express'
 import routers from './routers/index'
 import { DbContex } from './db'
 const errorMiddleware = require('./middlewares/errorMiddleware')
 require('dotenv').config({path:'src/.env'})
 
 import {fetchModule} from './module/yandexApiModule'
-import { Station } from './entitys/Station'
 
 const app = express()
 const port = process.env.PORT || 2050

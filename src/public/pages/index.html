@@ -27,11 +27,12 @@
             <div class="label">
                 <label for="from">Откуда</label><br>
             </div>
-            <input id="from" type="text" required><br>
+            <input id="from" type="" list="dataList" required><br>
             <div class="label">
                 <label for="to">Куда</label><br>
             </div>
-            <input id="to" type="text" required><br>
+            <input id="to" type="text" list="dataList" required><br>
+            <datalist id="dataList"></datalist>
             <input id="searchButton" type="submit" value="Найти">
             <p class="Error" style="visibility:hidden;">Пожалуйста заполните все поля</p>
         </form>
@@ -53,8 +54,8 @@
             <div class="label">
                 <label>Фото профиля</label>
             </div>
-                <input id='img' name="img" type="file"><br>
-                <input id="regButton" type="submit" value="Зарегестрироваться">
+            <input id='img' name="img" type="file"><br>
+            <input id="regButton" type="submit" value="Зарегестрироваться">
             <p class="Error">Пожалуйста заполните все поля</p>
         </form>
     </div>
@@ -72,10 +73,54 @@
             <p class="Error">Пожалуйста заполните все поля</p>
         </form>
     </div>
+    <div class="divForm" style="height: auto; width: auto;">
+        <form class="form" id="schedule" style="height: auto; width: auto;">
+
+        </form>
+    </div>
+    <div class="divForm">
+        <form class="form" id="sucses">
+            <h1>Успешно</h1>
+            <button class="navButton" type="button" id="OKButton">OK</button>
+        </form>
+    </div>
+
+    <div class="divForm">
+
+        <div class="schedule-container">
+            <div class="train-block">
+                <div class="train-number">Поезд №123</div>
+                <div class="row">
+                    <div class="station">Москва</div>
+                    <div class="station">Санкт-Петербург</div>
+                </div>
+                <div class="row">
+                    <div class="time">Отправление: 08:30</div>
+                    <div class="duration">4ч 15м</div>
+                    <div class="time">Прибытие: 12:45</div>
+                </div>
+            </div>
+
+            <div class="train-block">
+                <div class="train-number">Поезд №123</div>
+                <div class="row">
+                    <div class="station">Москва</div>
+                    <div class="station">Санкт-Петербург</div>
+                </div>
+                <div class="row">
+                    <div class="time">Отправление: 08:30</div>
+                    <div class="duration">4ч 15м</div>
+                    <div class="time">Прибытие: 12:45</div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </body>
 <script src="/scripts/fetch.js"></script>
 <script src="/scripts/log_in_out.js"></script>
+<script src="/scripts/schedule.js"></script>
 <script src="/scripts/script.js"></script>
+<script src="/scripts/dataList.js"></script>
 
 </html>

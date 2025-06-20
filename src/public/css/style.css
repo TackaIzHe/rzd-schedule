@@ -105,3 +105,54 @@ img#ava{
     width: 100px;
     visibility: hidden;
 }
+
+.schedule-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      padding: 20px;
+      border: 2px solid black ; 
+      background-color: grey;
+      border-radius: 15px;
+      
+    }
+    .train-block {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 20px;
+      width: 300px;
+      box-sizing: border-box;
+      transition: transform 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    /* .train-block:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    } */
+    .train-number {
+      font-weight: bold;
+      font-size: 1.2em;
+      color: #34495e;
+      margin-bottom: 8px;
+    }
+    .row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 1em;
+      color: #2c3e50;
+    }
+    .station {
+      font-weight: 600;
+    }
+    .time {
+      font-weight: 500;
+      color: #7f8c8d;
+    }
+    .duration {
+      font-weight: 600;
+      color: #2980b9;
+    }

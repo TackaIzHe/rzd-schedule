@@ -1,3 +1,4 @@
+$('#OKButton').click(OKButtonToggle)
 
 if(document.cookie.split('=')[1] !== undefined){
     Login()
@@ -15,6 +16,12 @@ $('input#searchButton').click((event)=>{
     $('p.Error').css({visibility:'hidden'})
     
     httpFetch.requestParams('schedules',from, to)
+    .then(async(e)=>{
+        if(e.ok){
+            const res = JSON.parse(await(e.text()))
+            getSchedule(res)
+        }
+    })
 })
 
 $('form#regForm').submit((event)=>{
@@ -36,6 +43,8 @@ $('form#regForm').submit((event)=>{
             q.append('id',JSON.parse(await e.text()).id)
             q.append('img',img)
             httpFetch.requestBody('uploadImg','POST',q,{})
+            OKButtonToggle()
+
         } 
     })
 })
@@ -53,6 +62,7 @@ $('input#logButton').click((event)=>{
     .then(async(e)=>{
         if(e.ok){
             Login()
+            OKButtonToggle()
         }
 
     })
@@ -67,24 +77,48 @@ $('button#search').click(searchTogle)
 $('button#login').click(logTogle)
 $('button#register').click(regTogle)
 
-
-
-function searchTogle(){
+function scheduleToggle(){
+    serchForm()
     regForm()
     logForm()
+    OKButton()
+    $('form#schedule').slideToggle(1000)
+}
+
+function OKButtonToggle(){
+    serchForm()
+    regForm()
+    logForm()
+    scheduleForm()
+    $('#sucses').slideToggle(1000)
+}
+
+function searchTogle(){
+    OKButton()
+    regForm()
+    logForm()
+    scheduleForm()
     $('form#form').slideToggle(1000)
 }
 
 function regTogle(){
+    OKButton()
     serchForm()
     logForm()
+    scheduleForm()
     $('form#regForm').slideToggle(1000)
 }
 
 function logTogle(){
+    OKButton()
     serchForm()
     regForm()
+    scheduleForm()
     $('form#logForm').slideToggle(1000)
+}
+
+function OKButton(){
+    $('#sucses').slideUp(1000)
 }
 
 function serchForm(){
@@ -97,4 +131,7 @@ function regForm(){
 
 function logForm(){
     $('form#logForm').slideUp(1000)
+}
+function scheduleForm(){
+    $('form#schedule').slideUp(1000)
 }
